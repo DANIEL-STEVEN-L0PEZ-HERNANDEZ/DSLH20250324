@@ -9,6 +9,7 @@ using DSLH20250324.AppWebMVC.Models;
 
 namespace DSLH20250324.AppWebMVC.Controllers
 {
+    [Authorize(Roles = "GERENTE")]
     public class ProductController : Controller
     {
         private readonly Test20250324DbContext _context;
