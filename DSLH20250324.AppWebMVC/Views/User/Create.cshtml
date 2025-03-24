@@ -1,6 +1,73 @@
 ﻿@model DSLH20250324.AppWebMVC.Models.User
 
 @{
+    ViewData["Title"] = "Crear";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h1 class="mb-0">Crear Usuario</h1>
+        </div>
+        <div class="card-body">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+                <div class="form-group mb-3">
+                    <label asp-for="Username" class="form-label fw-bold">Nombre de Usuario</label>
+                    <input asp-for="Username" class="form-control border-primary" />
+                    <span asp-validation-for="Username" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="Email" class="form-label fw-bold">Correo Electrónico</label>
+                    <input asp-for="Email" class="form-control border-primary" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="Password" class="form-label fw-bold">Contraseña</label>
+                    <input asp-for="Password" class="form-control border-primary" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="ConfirmarPassword" class="form-label fw-bold">Confirmar Contraseña</label>
+                    <input asp-for="ConfirmarPassword" class="form-control border-primary" />
+                    <span asp-validation-for="ConfirmarPassword" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="Role" class="form-label fw-bold">Rol</label>
+                    <input asp-for="Role" class="form-control border-primary" />
+                    <span asp-validation-for="Role" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-4">
+                    <label asp-for="Notes" class="form-label fw-bold">Notas</label>
+                    <input asp-for="Notes" class="form-control border-primary" />
+                    <span asp-validation-for="Notes" class="text-danger"></span>
+                </div>
+                <div class="text-end">
+                    <input asp-action="Index" type="submit" value="Create" class="btn btn-primary btn-lg" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-3">
+    <a asp-action="Index" class="btn btn-secondary">Regresar a la Lista</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+
+
+
+
+
+@* @model DSLH20250324.AppWebMVC.Models.User
+
+@{
     ViewData["Title"] = "Create";
 }
 
@@ -51,3 +118,4 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+ *@

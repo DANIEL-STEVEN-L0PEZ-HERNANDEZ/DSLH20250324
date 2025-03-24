@@ -1,6 +1,66 @@
 ﻿@model DSLH20250324.AppWebMVC.Models.User
 
 @{
+    ViewData["Title"] = "Detalles";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-sm">
+        <div class="card-header bg-info text-white">
+            <h1 class="mb-0">Detalles del Usuario</h1>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3 fw-bold">
+                    @Html.DisplayNameFor(model => model.Username)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Username)
+                </dd>
+                <dt class="col-sm-3 fw-bold">
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+                <dt class="col-sm-3 fw-bold">
+                    @Html.DisplayNameFor(model => model.Password)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Password)
+                </dd>
+                <dt class="col-sm-3 fw-bold">
+                    @Html.DisplayNameFor(model => model.Role)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Role)
+                </dd>
+                <dt class="col-sm-3 fw-bold">
+                    @Html.DisplayNameFor(model => model.Notes)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Notes)
+                </dd>
+            </dl>
+        </div>
+        <div class="card-footer text-end">
+            <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning btn-lg me-2">Editar</a>
+            <a asp-action="Index" class="btn btn-secondary btn-lg">Regresar a la Lista</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+@* @model DSLH20250324.AppWebMVC.Models.User
+
+@{
     ViewData["Title"] = "Details";
 }
 
@@ -46,3 +106,4 @@
     <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
+ *@

@@ -60,10 +60,12 @@ namespace DSLH20250324.AppWebMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Username,Email,Password,Role,Notes")] User user)
+        public async Task<IActionResult> Create([Bind("Id,Username,Email,Password,ConfirmarPassword,Role,Notes")] User user)
         {
             if (ModelState.IsValid)
             {
+                user.Password = CalcularHashMD5(user.Password);
+                user.ConfirmarPassword = CalcularHashMD5(user.ConfirmarPassword);
                 _context.Add(user);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -92,7 +94,7 @@ namespace DSLH20250324.AppWebMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Username,Email,PasswordHash,Role,Status")] User user)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Username,Email,Password,ConfirmarPassword,Role,Status")] User user)
         {
             if (id != user.Id)
             {
