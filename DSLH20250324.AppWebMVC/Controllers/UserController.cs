@@ -60,7 +60,7 @@ namespace DSLH20250324.AppWebMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Username,Email,Password,ConfirmarPassword,Role,Notes")] User user)
+        public async Task<IActionResult> Create([Bind("Id,Username,Email,Password,ConfirmarPassword,Role,Notes,Status")] User user)
         {
             if (ModelState.IsValid)
             {

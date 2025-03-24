@@ -33,17 +33,27 @@
                     <span asp-validation-for="ConfirmarPassword" class="text-danger"></span>
                 </div>
                 <div class="form-group mb-3">
-                    <label asp-for="Role" class="form-label fw-bold">Rol</label>
-                    <input asp-for="Role" class="form-control border-primary" />
+                    <label asp-for="Role" class="form-label fw-bold"></label>
+                    <select asp-for="Role" class="form-control">
+                        <option value="">SELECCIONAR</option>
+                        <option value="ADMINISTRADOR">ADMINISTRADOR</option>
+                        <option value="GERENTE">GERENTE</option>
+                    </select>
                     <span asp-validation-for="Role" class="text-danger"></span>
                 </div>
+
                 <div class="form-group mb-4">
                     <label asp-for="Notes" class="form-label fw-bold">Notas</label>
                     <input asp-for="Notes" class="form-control border-primary" />
                     <span asp-validation-for="Notes" class="text-danger"></span>
                 </div>
+                <div class="form-group mb-4">
+                    <label asp-for="Status" class="form-label fw-bold">Estado</label>
+                    <input asp-for="Status" class="form-control border-primary" />
+                    <span asp-validation-for="Status" class="text-danger"></span>
+                </div>
                 <div class="text-end">
-                    <input asp-action="Index" type="submit" value="Create" class="btn btn-primary btn-lg" />
+                    <input type="submit" value="Crear" class="btn btn-primary btn-lg" />
                 </div>
             </form>
         </div>
