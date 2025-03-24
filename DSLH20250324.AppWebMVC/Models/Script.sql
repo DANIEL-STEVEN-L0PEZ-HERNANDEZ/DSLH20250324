@@ -44,3 +44,6 @@ CREATE TABLE Users (
     Notes TEXT                               -- Notas adicionales (Notas adicionales)
 );
 GO
+
+ALTER TABLE Users                       --Se le agrega el campo Estatus a la tabla Usuario
+ADD Status TINYINT DEFAULT 1
