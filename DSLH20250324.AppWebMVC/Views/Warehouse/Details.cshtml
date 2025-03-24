@@ -1,6 +1,45 @@
 ﻿@model DSLH20250324.AppWebMVC.Models.Warehouse
 
 @{
+    ViewData["Title"] = "Detalles";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-sm">
+        <div class="card-header bg-info text-white">
+            <h1 class="mb-0">Detalles de la Bodega</h1>
+        </div>
+        <div class="card-body">
+            <div class="mb-4">
+                <h4 class="text-primary">Detalles</h4>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-3 fw-bold">
+                        @Html.DisplayNameFor(model => model.WarehouseName)
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.WarehouseName)
+                    </dd>
+                    <dt class="col-sm-3 fw-bold">
+                        @Html.DisplayNameFor(model => model.Notes)
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.Notes)
+                    </dd>
+                </dl>
+            </div>
+            <div class="text-end">
+                <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning btn-lg me-2">Editar</a>
+                <a asp-action="Index" class="btn btn-secondary btn-lg">Regresar a la Lista</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@* @model DSLH20250324.AppWebMVC.Models.Warehouse
+
+@{
     ViewData["Title"] = "Details";
 }
 
@@ -28,3 +67,4 @@
     <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
+ *@

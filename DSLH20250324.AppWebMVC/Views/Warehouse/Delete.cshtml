@@ -1,6 +1,45 @@
 ﻿@model DSLH20250324.AppWebMVC.Models.Warehouse
 
 @{
+    ViewData["Title"] = "Eliminar";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-sm">
+        <div class="card-header bg-danger text-white">
+            <h1 class="mb-0">Eliminar Bodega</h1>
+        </div>
+        <div class="card-body">
+            <h3 class="text-warning">¿Está seguro de que desea eliminar esto?</h3>
+            <div class="mt-3">
+                <h4>Detalles de la Bodega</h4>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-3 fw-bold"> @Html.DisplayNameFor(model => model.WarehouseName) </dt>
+                    <dd class="col-sm-9"> @Html.DisplayFor(model => model.WarehouseName) </dd>
+                    <dt class="col-sm-3 fw-bold"> @Html.DisplayNameFor(model => model.Notes) </dt>
+                    <dd class="col-sm-9"> @Html.DisplayFor(model => model.Notes) </dd>
+                </dl>
+            </div>
+        </div>
+        <div class="card-footer text-end">
+            <form asp-action="Delete" class="d-inline">
+                <input type="hidden" asp-for="Id" />
+                <input type="submit" value="Eliminar" class="btn btn-danger btn-lg me-2" />
+            </form>
+            <a asp-action="Index" class="btn btn-secondary btn-lg">Regresar a la Lista</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+@* @model DSLH20250324.AppWebMVC.Models.Warehouse
+
+@{
     ViewData["Title"] = "Delete";
 }
 
@@ -31,3 +70,4 @@
         <a asp-action="Index">Back to List</a>
     </form>
 </div>
+ *@

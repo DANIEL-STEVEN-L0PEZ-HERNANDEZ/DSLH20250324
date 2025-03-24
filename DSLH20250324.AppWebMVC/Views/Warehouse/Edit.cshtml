@@ -1,6 +1,56 @@
 ﻿@model DSLH20250324.AppWebMVC.Models.Warehouse
 
 @{
+    ViewData["Title"] = "Editar";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-sm">
+        <div class="card-header bg-warning text-dark">
+            <h1 class="mb-0">Editar Bodega</h1>
+        </div>
+        <div class="card-body">
+            <h4 class="text-primary">Bodega</h4>
+            <hr />
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group mb-3">
+                    <label asp-for="WarehouseName" class="form-label fw-bold">Nombre de la Bodega</label>
+                    <input asp-for="WarehouseName" class="form-control border-primary" />
+                    <span asp-validation-for="WarehouseName" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="Notes" class="form-label fw-bold">Notas</label>
+                    <input asp-for="Notes" class="form-control border-primary" />
+                    <span asp-validation-for="Notes" class="text-danger"></span>
+                </div>
+                <div class="mt-3">
+                    <input type="submit" value="Guardar" class="btn btn-primary btn-lg" />
+                    <a asp-action="Index" class="btn btn-secondary btn-lg ms-2">Regresar a la Lista</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+
+
+
+
+
+
+
+
+@* @model DSLH20250324.AppWebMVC.Models.Warehouse
+
+@{
     ViewData["Title"] = "Edit";
 }
 
@@ -37,3 +87,4 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+ *@
