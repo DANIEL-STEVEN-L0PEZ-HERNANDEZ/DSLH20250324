@@ -1,6 +1,77 @@
 ﻿@model DSLH20250324.AppWebMVC.Models.Product
 
 @{
+    ViewData["Title"] = "Editar";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-lg">
+        <div class="card-header bg-warning text-dark">
+            <h2 class="text-center">Editar Producto</h2>
+        </div>
+        <div class="card-body">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+                <input type="hidden" asp-for="Id" />
+
+                <div class="mb-3">
+                    <label asp-for="ProductName" class="form-label">Nombre del Producto</label>
+                    <input asp-for="ProductName" class="form-control" placeholder="Ingresa el nombre del producto" />
+                    <span asp-validation-for="ProductName" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Description" class="form-label">Descripción</label>
+                    <input asp-for="Description" class="form-control" placeholder="Ingresa una descripción" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Price" class="form-label">Precio</label>
+                    <input asp-for="Price" class="form-control" placeholder="Ingresa el precio" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="WarehouseId" class="form-label">Almacén</label>
+                    <select asp-for="WarehouseId" class="form-control" asp-items="ViewBag.WarehouseId"></select>
+                    <span asp-validation-for="WarehouseId" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="BrandId" class="form-label">Marca</label>
+                    <select asp-for="BrandId" class="form-control" asp-items="ViewBag.BrandId"></select>
+                    <span asp-validation-for="BrandId" class="text-danger"></span>
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-success">Guardar</button>
+                    <a asp-action="Index" class="btn btn-secondary">Volver a la Lista</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+@* @model DSLH20250324.AppWebMVC.Models.Product
+
+@{
     ViewData["Title"] = "Edit";
 }
 
@@ -62,3 +133,4 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+ *@

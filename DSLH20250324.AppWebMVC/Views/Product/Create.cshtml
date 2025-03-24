@@ -1,6 +1,75 @@
 ﻿@model DSLH20250324.AppWebMVC.Models.Product
 
 @{
+    ViewData["Title"] = "Crear";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white">
+            <h2 class="text-center" style="font-family:'Cambria Math'">Producto</h2>
+            <h4 class="text-center small" style="font-family:'Cambria Math'">¡Crear nuevo producto!</h4>
+        </div>
+        <div class="card-body">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+                <div class="mb-3">
+                    <label asp-for="ProductName" class="form-label">Nombre del Producto</label>
+                    <input asp-for="ProductName" class="form-control" placeholder="Ingresa el nombre del producto" />
+                    <span asp-validation-for="ProductName" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Description" class="form-label">Descripción</label>
+                    <input asp-for="Description" class="form-control" placeholder="Ingresa una descripción" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Price" class="form-label">Precio</label>
+                    <input asp-for="Price" class="form-control" placeholder="Ingresa el precio" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="WarehouseId" class="form-label">Almacén</label>
+                    <select asp-for="WarehouseId" class="form-control" asp-items="ViewBag.WarehouseId"></select>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="BrandId" class="form-label">Marca</label>
+                    <select asp-for="BrandId" class="form-control" asp-items="ViewBag.BrandId"></select>
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-success">Crear</button>
+                    <a asp-action="Index" class="btn btn-secondary">Volver a la Lista</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+@* @model DSLH20250324.AppWebMVC.Models.Product
+
+@{
     ViewData["Title"] = "Create";
 }
 
@@ -59,3 +128,4 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+ *@

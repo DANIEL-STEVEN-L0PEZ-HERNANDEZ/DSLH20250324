@@ -174,9 +174,6 @@ namespace DSLH20250324.AppWebMVC.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-
-
-
         [AllowAnonymous]
         public IActionResult Login()
         {
@@ -184,13 +181,13 @@ namespace DSLH20250324.AppWebMVC.Controllers
         }
         [AllowAnonymous]
         [HttpPost]
-        public async Task<IActionResult> Login(User usuario)
+        public async Task<IActionResult> Login(User user)
         {
-            usuario.Password = CalcularHashMD5(usuario.Password);
+            user.Password = CalcularHashMD5(user.Password);
             var usuarioAuth = await _context.
                 Users.
-                FirstOrDefaultAsync(s => s.Email == usuario.Email && s.Password == usuario.Password);
-            if (usuarioAuth != null && usuarioAuth.Id > 0 && usuarioAuth.Email == usuario.Email)
+                FirstOrDefaultAsync(s => s.Email == user.Email && s.Password == user.Password);
+            if (usuarioAuth != null && usuarioAuth.Id > 0 && usuarioAuth.Email == user.Email)
             {
                 var claims = new[] {
                     new Claim(ClaimTypes.Name, usuarioAuth.Email),
@@ -240,7 +237,7 @@ namespace DSLH20250324.AppWebMVC.Controllers
         [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Profile(int id, [Bind("UserId,Username,Email,Status,Role")] User usuario)
+        public async Task<IActionResult> Profile(int id, [Bind("Id,Username,Email,Status,Role")] User usuario)
         {
             if (id != usuario.Id)
             {
